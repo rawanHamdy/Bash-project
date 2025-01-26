@@ -9,7 +9,7 @@ function delete_row() {
         return 1
     fi
 
-    table_file="./$table"
+    table_file="../../databases/$table"
 
     if [[ ! -f "$table_file" ]]; then
         echo "Error: Table '$table' does not exist!"

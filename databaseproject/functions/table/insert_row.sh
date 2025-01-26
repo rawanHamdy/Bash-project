@@ -9,8 +9,8 @@ function insert_row() {
         return 1
     fi
 
-    table_file="./$table"
-    metadata_file="./$table.metadata"
+    table_file="../../databases/$table"
+    metadata_file="../../databases/$table.metadata"
 
     if [[ ! -f "$metadata_file" ]]; then
         echo "Error: Table '$table' does not exist!"

@@ -3,6 +3,18 @@
 source ../sec_functions.sh
 
 function create_table() {
+
+    # Prompt for the database name
+    read -r -p "Enter Database Name: " dbname
+    dbname=$(echo "$dbname" | tr ' ' '_')
+
+    # Check if the database exists
+    if [[ ! -d "../../databases/$dbname" ]]; then
+        echo "Error: Database '$dbname' does not exist!"
+        return 1
+        databases
+    fi
+
     read -r -p "Enter Table Name: " table
     table=$(echo "$table" | tr ' ' '_')
 
@@ -15,9 +27,9 @@ function create_table() {
     if (( $? != 0 )); then
         return 1
     fi
-
-    table_file="./$table"
-    metadata_file="./$table.metadata"
+    
+    table_file="../../databases/$table"
+    metadata_file="../../databases/$table.metadata"
 
     if [[ -f "$metadata_file" ]]; then
         echo "Error: Table '$table' already exists!"
