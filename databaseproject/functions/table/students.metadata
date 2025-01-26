@@ -1,3 +1,0 @@
-id:integer:pk
-name:string:not_null
-age:integer:
